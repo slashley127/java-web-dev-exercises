@@ -1,4 +1,4 @@
-package exercises;
+package exercises.lsn1;
 import java.util.Scanner;
 
 public class HelloWorld {
