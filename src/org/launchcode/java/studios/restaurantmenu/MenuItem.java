@@ -16,6 +16,5 @@ public class MenuItem {
         this.newItem=newItem;
 
     }
-    public class
 
 }
