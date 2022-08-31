@@ -1,5 +1,6 @@
 package org.launchcode.java.demos.lsn5unittesting.test;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -24,12 +25,32 @@ public class CarTest {
     }
 
     @Test
-    public  void testInitialGasTank(){
+    public void testInitialGasTank(){
         assertEquals(10,test_car.getGasTankSize(),.001);
     }
 
     //TODO: gasTankLevel is accurate after driving within tank range
+
+    @Test
+    public void testGasTankLevelAfterDriving(){
+        test_car.drive(50);
+        assertEquals(9, test_car.getGasTankLevel(),.001);
+    }
+
+
     //TODO: gasTankLevel is accurate after attempting to drive past tank range
+    @Test
+    public void testGasTankAfterExceedingTankRange(){
+        test_car.drive(51);
+        assertEquals(test_car.getGasTankLevel(), 0, .001);
+    }
+
     //TODO: can't have more gas than tank size, expect an exception
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testGasOverfillException() {
+        test_car.addGas(5);
+        Assert.fail("Shouldn't get here, car cannot have more gas in tank than the size of the tank");
+    }
 
 }
