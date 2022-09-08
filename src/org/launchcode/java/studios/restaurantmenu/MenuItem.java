@@ -17,6 +17,9 @@ public class MenuItem {
         this.isNew=newItem;
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> da5ac07e30dc00aabb342e930da5c1403aede51e
 
 }
